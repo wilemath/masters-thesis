@@ -1,0 +1,142 @@
+\documentclass[12pt]{article}
+\usepackage{graphicx} % Required for inserting images
+\usepackage{mathtools}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+
+\newcommand{\defeq}{\vcentcolon=}
+\newcommand{\eqdef}{=\vcentcolon}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+
+\title{Results for Thesis}
+\author{Jack Wile}
+\date{}
+\newtheorem*{definition}{Definition}
+\newtheorem*{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{remark}{Remark}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newcommand\mc{\mathcal}
+\newcommand\ms{\mathscr}
+\newcommand{\ldag}[1]{\mathscr{L}^\dagger(\mathscr{#1})}
+\newcommand{\ip}[2]{\langle #1, #2 \rangle}
+\begin{document}
+
+\maketitle
+
+
+\section*{Preliminaries and Definitions}
+
+\begin{definition}
+	Let $\mathscr{D}$ be a pre-Hilbert space. Denote by $\mathscr{L}^\dagger(\mathscr{D})$
+	the space of linear operators on $\ms{D}$ such that for all $A \in \ldag{D}$ 
+
+	\begin{enumerate}
+		\item $A(\ms{D}) \subseteq \ms{D}$,
+		\item $\ms{D} \subseteq \mc{D}(A^*)$ and $A^*(\ms{D}) \subseteq \ms{D}$.
+	\end{enumerate}
+
+	\noindent Under the involution $A^\dagger = A^*|_{\ms{D}}$, $\ldag{D}$ is a $*\text{-}algebra$. 
+	An Op$^*$-algebra is a unital $*$-subalgebra of $\ldag{D}$.
+\end{definition}
+
+\begin{definition}
+	Let $\ms{A}$ be an Op$^*$-algebra. We define the convex hull of all elements $A^\dagger A$ as the set
+	$\mc{P}(\ms{A}) = \text{co}(\{A^\dagger A \ ; \ A \in \ms{A}\})$. Similarly, we write
+	$\mc{K}(\ms{A}) = \{A \in \ms{A} \ ; \ \ip{A\psi}{\psi} \ge 0 \text{ for all } \psi \in \ms{D}\}$.
+
+
+\end{definition}
+
+We have the relations $\mc{P} \subseteq \overline{\mc{P}} \subseteq \mc{K}$, where the middle closure may be taken over a
+topology finger that the ultraweak topology on $\ms{A}$. If $\ms{A}$ is a C$^*$-algebra, then these all coincide. This is not 
+the case for general Op$^*$-algebras. As a result there are a variety of positivity one can take in the unbounded setting. 
+For the time being we take the weakest.
+
+
+\begin{definition} (Weak Positivity) Let $\mc{E}: \ms{A} \to \ms{B}$ be a linear map between Op$^*$-algebras. 
+	We say $\mc{E}$ is $(\mc{P}(\ms{A}), \mc{K}(\ms{B}))$ positive (usually just stated as "postive")
+	if for any $A \in \ms{A}$ one has 
+	$\ip{\mc{E}(A^\dagger A)\psi}{\psi} \ge 0$ for any $\psi \in \mc{D}(\ms{B})$. In a similar manner 
+	we say $\mc{E}$ is completely positive if every corresponding matrix amplification
+	$\mc{E}_n:\ms{A} \otimes M_n \to \ms{B} \otimes M_n$ is positive. 
+\end{definition}
+
+This of course carries the insinuation that $\ms{A} \otimes M_n$ is an Op$^*$-algebra over $\mc{D}(\ms{A})^n$, which is indeed
+the case.
+We may also consider the tensor product $\ms{A} \otimes M_\infty$, where $M_\infty$ denotes the set of finitely-supported,
+but infinite matrices. We will consider stability of this tensor product and its relationship to complete positivity later.
+
+There is a generalization of the Stinespring Theorem for this class, and hence any more specific class of positive maps between
+Op$^*$-algebras.
+
+\begin{theorem}
+
+	(Stinespring's Theorem) Let $\mc{E}: \ms{A} \to \ms{B}$ be a completely positive map. This map is of the form
+	\[\mc{E}(A) = V^*\pi(A)V.\] Where $\pi: \ms{A} \to \pi(\ms{A})$ is a $*$-representation onto an Op$^*$-algebra 
+	$\pi(\ms{A})$ over a dilated pre-Hilbert space $\mc{D}_\pi$ containing $\mc{D}(\mc{A})$ as a subspace, and 
+	$V:\mc{D}(\ms{A}) \to \mc{D}_\pi$ is a linear map continuous with respect to the graph topologies on $\mc{D}(\ms{A})$
+	and $\mc{D}_\pi$, $V^*$ the corresponding TVS adjoint. Conversely, any such map is completely positive. If $\mc{E}$ is 
+	ultraweakly continuous, then so is $\pi$.
+
+\end{theorem}
+
+\begin{proof}
+	We show the first part of the theorem, which closely follows the bounded case. Consider the algebraic tensor product 
+	$\ms{A} \otimes \mc{D}$, where $\mc{D} = \mc{D}(\ms{A})$. For $\xi = \sum_i A_i \otimes \phi_i$ and 
+	$\eta = \sum_j B_j \otimes \psi_j$ the bilinear form $\ip{\xi}{\eta} = \sum_{i, j}\ip{\phi_i}{\mc{E}(A^\dagger_iB_j)\psi_j}$.
+	That this is positive semi-definite follows from positivity of $\mc{E}$. Define the action of $\pi$ by 
+	\[\pi(X)\xi = \sum_i XA_i \otimes \phi_i.\] This defines a representation of $\ms{A}$ on $\ms{A} \otimes \mc{D}$ satisfying
+	\[\ip{\xi}{\pi(A)\eta} = \ip{\pi(A^\dagger)\xi}{\eta}.\] Now let $\mc{N}$ be the kernel of the previously defined inner product
+	on $\ms{A} \otimes \mc{D}$. Given that $\xi \in \mc{N}$, one has
+	\[\|\pi(A)\xi\|^2 = \ip{\xi}{\pi(A^\dagger A)\xi} \le \|\xi\|\cdot\|\pi(A^\dagger A)\xi\| = 0.\]
+	Thus the action of $\pi$ on the pre Hilbert space $\mc{D}_\pi = (\ms{A} \otimes \mc{D})/\mc{N}$ admits a well-defined 
+	linear operator. $\pi(\ms{A})$ is then an Op$^*$-algebra.
+
+	Now define $V:\mc{D} \to \mc{D_\pi}$ via $V\psi = 1 \otimes \psi + \mc{N}$. Let $\rho_X$ denote a seminorm corresponding
+	to $X \in \ms{A}$ or $X \in \pi(\ms{A})$ in either graph topology. We have 
+	\begin{align*}
+	\rho_{\pi(A)}(V\psi)^2 &= \ip{\pi(A)V\psi}{\pi(A)V\psi} \\
+	&= \ip{\pi(A)(1 \otimes \psi)}{\pi(A)(1 \otimes \psi)} \\
+	&= \ip{A \otimes \psi}{\pi(A) \otimes \psi} \\
+	&= \ip{\mc{E}(A^\dagger A)\psi}{\psi} \\
+	&\le \|\mc{E}(A^\dagger A)\psi\|\cdot\|\psi\| \\
+	&\le \|B\psi\|^2 \\
+	&= \rho_B(\psi)^2.
+	\end{align*}
+	Where $B = I + \mc{E}(A^\dagger A) \in \ms{B}$ and $1 \otimes \psi$ is understood here as an equivalence class. Moreover, 
+	we have \[\ip{V\phi}{\pi(A)V\psi} = \ip{1 \otimes \phi}{A \otimes \psi} = \ip{\phi}{\mc{E}(A)\psi}\] and so 
+	$\mc{E}(A) = V^*\pi(A)V$. 
+
+	Now suppose that $\mc{E}$ is ultraweakly continuous and that $\{A_\alpha\}_\alpha$ converges to $0$ ultraweakly in $\ms{A}$.
+	Let $\{\sum_k X_{n,k} \otimes \xi_{n, k}\}_n$ and $\{\sum_k Y_{n, k} \otimes \eta_{n, k}\}_n$
+	be two square summable sequences in $\mc{D}_\pi$. One has
+	\begin{align*}
+	   	\sum_n \ip{\pi(A_\alpha)\xi_n}{\eta_n} 
+		&= \sum_{n, i, j} \ip{\pi(A_\alpha)X_{n, i} \otimes \xi_{n, i}}{Y_{n, j} \otimes \eta_{n, j}} \\
+		&= \sum_{n, i, j} \ip{A_\alpha X_{n,i} \otimes \xi_{n, i}}{Y_{n,j} \otimes \eta_{n,j}} \\
+		&= \sum_{n, i, j} \ip{\psi_{n, i}}{\mc{E}((A_\alpha X_{n,i})^\dagger Y_{n,j})\eta_{n, j}}. \\ 
+	\end{align*}
+	Where $\xi_n$ and $\eta_n$ are the nth terms of the previous defined sequences.	
+	It follows by our assumption on the continuity of $\mc{E}$, the seperate continuity of multiplication, and continuity 
+	of the involution that the last line converges to zero, as required.
+\end{proof}
+
+The previous definitions and Stinespring's Theorem motivates the following definition.
+
+\begin{definition}
+	A quantum channel of Op$^*$-algebras is a completely positive, ultraweakly continuous linear map $\mc{E}:\ms{A} \to \ms{B}$, 
+	where $\ms{A}$ and $\ms{B}$ are Op$^*$-algebras.
+\end{definition}
+
+\section*{Lemmas}
+
+\section*{Propositions}
+
+\section*{Theorems}
+
+
+
+\end{document}
