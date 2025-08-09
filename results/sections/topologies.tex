@@ -16,7 +16,7 @@ and how each topology relates to one another.
 \end{definition}
 
 
-\section*{Lassner's Uniform Topology}
+\section*{The Uniform Topology}
 
 Here we will outline the results of Lassner concerning their so-called uniform topology. Before we can define what that is, we require
 a topology on the domain of an Op*-algebra.
@@ -120,7 +120,27 @@ Finally, Lassner gives a lemma characterizing the topology $\mc{T}_\ms{D}$ witho
 \end{lemma}
 
 
+\section*{The $\beta$ Topology}
 
+Here we will discuss another topology given by Lassner which emerges from a dual pairing familiar to
+bounded operator algebras.
+
+\begin{definition}
+	
+By $\ms{T}_1(\ms{D})$ we refer to those nuclear operator $\rho \in \ldag{\ms{D}}$ for which
+\begin{enumerate}
+	\item $A\rho B$ and $A \rho^\dagger B$ are nuclear for all $A, B \in \ldag{\ms{D}}$.
+	\item $\ip{AB}{\rho C} = \ip{B\rho}{CA}$ for all $A, B, C \in \ldag{\ms{D}}$.
+\end{enumerate}
+Where $\ip{\rho}{A} = \text{Tr}(\rho A)$ and $\ip{A}{\rho} = \text{Tr}(A\rho)$.
+
+\end{definition}
+
+Then $\ip{\rho}{A}$ gives a dual pairing for $\pair{\ms{T}_1(\ms{D})}{\ldag{\ms{D}}}$. We denote by $\beta$ the topology 
+induced by this dual pairing; the locally convex topology given by the seminorms \[\beta_S(A) = \sup_{\rho \in S} |\ip{\rho}{A}|.\]
+Where $S$ is a weakly bounded subset of $\ms{T}_1(\ms{D})$. This topology is "physically motivated" in the sense of the duality between
+states $\rho$ and observables $A$. The $\beta$ topology also generalizes the uniform topology on $\ms{B}(\ms{H})$ with, in the bounded case, $\ms{T}_1(\ms{D})$
+simply being all nuclear operators and the dual pairing being the familiar one.
 
 
 \end{document}

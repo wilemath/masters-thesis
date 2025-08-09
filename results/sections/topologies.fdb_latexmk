@@ -1,7 +1,7 @@
 # Fdb version 4
-["pdflatex"] 1754761297.90845 "topologies.tex" "topologies.pdf" "topologies" 1754761298.19923 0
-  "../main.tex" 1754692177.84098 220 cd2bf1e7ac7cb079ae36aa0da6966c55 ""
-  "/home/jack/texmf/tex/latex/mathcommands/mathcommands.sty" 1754679746.87926 662 2ef2ca4f53eaa7035ccb6f7dbdf206a3 ""
+["pdflatex"] 1754766668.56665 "topologies.tex" "topologies.pdf" "topologies" 1754766668.87033 0
+  "../main.tex" 1754762105.30792 220 cd2bf1e7ac7cb079ae36aa0da6966c55 ""
+  "/home/jack/texmf/tex/latex/mathcommands/mathcommands.sty" 1754762264.3519 764 f35a4371a47d6946c283d3a342aedc54 ""
   "/home/jack/texmf/tex/latex/subfiles/subfiles.cls" 1605478891 1507 57de335d88fde4e5c924dfed577fdb74 ""
   "/home/jack/texmf/tex/latex/subfiles/subfiles.sty" 1605478891 5262 70ab9987ec94ed2beeb5c2d951d465f6 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -24,6 +24,8 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy6.tfm" 1136768653 1116 933a60c408fc0a863a92debe84b2d294 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmsy8.tfm" 1136768653 1120 8b7d695260f3cff42e636090a8002094 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti12.tfm" 1136768653 1484 ed72f8f5cf654cda15ecc8e32bfcbee5 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti7.tfm" 1136768653 1492 86331993fe614793f5e7e755835c31c5 ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cm/cmti8.tfm" 1136768653 1504 1747189e0441d1c18f3ea56fafc1c480 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs10.tfm" 1229303445 688 37338d6ab346c2f1466b29e195316aa4 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/rsfs/rsfs5.tfm" 1229303445 684 3a51bd4fd9600428d5264cf25f04bb9a ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb" 1248133631 32080 340ef9bf63678554ee606688e7b5339d ""
@@ -67,8 +69,8 @@
   "/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1754676147 5528033 0c358b2aae4aa21399659c485f38b4ac ""
   "/usr/local/texlive/2025/texmf-var/web2c/pdftex/pdflatex.fmt" 1754676233 3605723 fcac939096143921317d2a6401d6b04d ""
   "/usr/local/texlive/2025/texmf.cnf" 1754676143.25973 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "topologies.aux" 1754761298.16836 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
-  "topologies.tex" 1754761296.67837 5464 d533daa08d093cc9b2d7f8e4507fb207 ""
+  "topologies.aux" 1754766668.83823 32 ab05033ccbb38b00a31b200ccedf8001 "pdflatex"
+  "topologies.tex" 1754766667.77424 6660 33c6190b2103aa60c3f408572aef6f12 ""
   (generated)
   "topologies.aux"
   "topologies.log"
