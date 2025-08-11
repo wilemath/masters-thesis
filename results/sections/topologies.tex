@@ -16,7 +16,7 @@ and how each topology relates to one another.
 \end{definition}
 
 
-\section*{The Uniform Topology}
+\subsection{The Uniform Topology}
 
 Here we will outline the results of Lassner concerning their so-called uniform topology. Before we can define what that is, we require
 a topology on the domain of an Op*-algebra.
@@ -120,7 +120,7 @@ Finally, Lassner gives a lemma characterizing the topology $\mc{T}_\ms{D}$ witho
 \end{lemma}
 
 
-\section*{The $\beta$ Topology}
+\subsection{The $\beta$ Topology}
 
 Here we will discuss another topology given by Lassner which emerges from a dual pairing familiar to
 bounded operator algebras.
@@ -140,7 +140,21 @@ Then $\ip{\rho}{A}$ gives a dual pairing for $\pair{\ms{T}_1(\ms{D})}{\ldag{\ms{
 induced by this dual pairing; the locally convex topology given by the seminorms \[\beta_S(A) = \sup_{\rho \in S} |\ip{\rho}{A}|.\]
 Where $S$ is a weakly bounded subset of $\ms{T}_1(\ms{D})$. This topology is "physically motivated" in the sense of the duality between
 states $\rho$ and observables $A$. The $\beta$ topology also generalizes the uniform topology on $\ms{B}(\ms{H})$ with, in the bounded case, $\ms{T}_1(\ms{D})$
-simply being all nuclear operators and the dual pairing being the familiar one.
+simply being all nuclear operators and the dual pairing being the familiar one. 
+
+\subsection{The $\rho$ topology}
+
+Let $\ms{A}$ be an Op*-algebra over $\ms{D}$ and $\{A_n\}_n \subseteq \ms{A}$
+a positive, increasing sequence. Suppose that $\ms{A} = \bigcup_n \ms{A}_n$ where \[\ms{A}_n \defeq \{A \in \ms{A} ; \ \text{for any } \psi \in \ms{D} , \
+|\ip{A\psi}{\psi}| \le \lambda \cdot |\ip{A_n\psi}{\psi}| \text{ for some } \lambda > 0\}.\] Then we have the norms $\norm{\cdot}_{n}: \ms{A}_n \to \mathbb{R}^+$ defined by
+\[\norm{A}_n = \inf\{\lambda > 0 \ ; \ |\ip{A\psi}{\psi}| \le \lambda\cdot|\ip{A_n\psi}{\psi}| \text{ for all }\psi \in \ms{D}\}.\] Suppose further that $\ms{A}$ is the inductive
+limit of the locally convex spaces $\{\pair{\ms{A}_n}{\norm{\cdot}_n}\}_n$. Since each $\ms{A}_n$ is a normed space, a neighbourhood basis of $0$ is given by unions of open balls with respect to each norm. Moreover, this topology is generated
+by the following seminorms indexed by $\alpha \in (\mathbb{R}^+)^{\mathbb{N}}$ \[\rho_\alpha(A) \defeq  \inf\left\{\sum^N_{k = 1}\alpha(k)\norm{A_k}_k \ ; \ A = \sum^N_{k = 1}A_k, \ 
+A_k \in \ms{A}_k\right\}.\] 
+
+Certain examples of Op*-algebras satsify the conditions necessary to define this topology, and in many cases this topology coincides with the $\beta$ topology, such as the vital
+position/momentum algebra on Schwarz space. It is unkown whether this this true for all Op*-algebras. It is easy to see that once again this topology generalizes the operator norm
+in the bounded setting.
 
 
 \end{document}

@@ -1,0 +1,130 @@
+\documentclass[../main.tex]{subfiles}
+
+\title{Error Correction}
+\author{Jack Wile}
+\date{}
+
+\begin{document}
+
+Here we discuss correctability and privacy for quantum channels, now taken
+to generality of $Op^*$-algebras as defined in the preliminary section. We
+are interested in two kinds of each notion; the exact case and the 
+approximate case. The former is merely an algebraic notion, and is little 
+different than in the bounded case, save for the generality of the objects.
+As discussed in the previous section however, we have a variety of 
+generalizations of the operator norm which may or may not agree in the 
+unbounded case, which leaves how best to think of correctability 
+potentially more ambiguous, certainly compared to the setting which we are
+trying to generalize.
+
+It's worth noting still however that even in the bounded case there remains
+some ambiguity with what the best notion of correctability and privacy are. First, let's state the definitions we are aiming to extend to unbounded 
+algebras.
+
+\begin{definition}
+
+	Let $\mc{E}: \msa \to \msb$ be a quantum channel of \cstar-algebras. A
+	\cstar-subalgebra $\ms{N} \subseteq \msb$ is said to be $\textbf{private}$
+	for $\mc{E}$ if \[\mc{E}(\msa) \subseteq \ms{N}'.\] Similarly, we saw that 
+	$\ms{N}$ is $\varepsilon$-private for $\mc{E}$ if there exists a 
+	quantum channel $\mc{F}: \msa \to \msb$, private for $\ms{N}$, such that 
+	\[\norm{\mc{E} - \mc{F}}_{\text{cb}} < \varepsilon.\]
+
+\end{definition}
+
+\begin{definition}
+
+	Let $\mc{E}: \msa \to \msb$ be a quantum channels of \cstar-algebras. 
+	a \cstar-subalgebra $\ms{N} \subseteq \msb$ is $\textbf{correctable}$
+	for $\mc{E}$ if there exists a quantum channel $\mc{R}: \ms{N} \to \ms{A}$ 
+	such that \[\mc{E}\mc{R} = \mc{I}_\ms{N}.\] $\ms{N}$ is $\varepsilon$-correctable
+	for $\mc{E}$ if instead we have 
+	\[\norm{\mc{E}\mc{R} - \mc{I}_\ms{N}}_{\text{cb}} < \varepsilon.\]
+
+\end{definition}
+
+Though we cannot write down the completely bounded norm for an unbounded channel, we can
+topologize the channel in a manner which is both more general and captures the 
+approximation up to "arbitrary amplification" in a manner similar to the completely 
+bounded norm.
+
+However, completely bounded convergence or pertubation is arguably too strong of a 
+requirement to describe certain physical pertubations. It is then perhaps desirable to 
+develop a correspondence between privacy and correctability in a weaker setting.
+
+We also note that in the above definitions are often restricted to the case where 
+$\msa$ is a von Neumann algebra, but the definition makes sense at this level of 
+generality and is immediately analogous to our $Op^*$-algebra setting.
+
+\subsection{$\msa$-amplifications}
+
+We aim to work with correctability and privacy in the sense of one of a few possible 
+locally convex topologies. It makes sense then to describe these in terms of the 
+seminorms of whatever topology we choose. What isn't immediately clear is how to capture
+the 'amplified' nature of the completely bounded topology, and so first a few things are
+in order.
+
+\begin{definition}
+
+Let $\msa$ be an $Op^*$-algebra. We denote by $\msa_\infty = \msa \otimes M_\infty$ 
+the space of infinite $\msa$-matrices, called the $\msa$-amplifications.
+
+\end{definition}
+
+It is an algebraic matter how one makes a $\ast$-algebra out of this space, but
+what space should this act on? Let $\ms{D}_\infty$ be the space of 
+finitely supported, $\ms{D}$-valued sequences. This is a pre-Hilbert space under the 
+usual 'direct sum' inner product for Hilbert spaces. $\msa_\infty$ acts on 
+these sequences in the usual manner. 
+It is clear that $\msa_\infty$ is an $Op^*$-algebra on $\ms{D}_\infty$.
+
+What is advantageous with this choice of domain is the stability of completeness of the 
+domain with respect to the topologies induced by $\msa$ and $\msa_\infty$.
+
+\begin{proposition}
+
+Let $\msa$ be an $Op^*$-algebra on a pre Hilbert space $\ms{D}$ such that $\ms{D}$ is 
+complete with respect to $\mc{T}_\msa$, then $\ms{D}_\infty$ is complete with 
+respect to $\mc{T}_{\msa_\infty}$.
+
+\begin{proof}
+
+	Let $\{f_\alpha\}_\alpha$ be Cauchy with respect to 
+	$\mc{T}_{\msa_\infty}$. Take the $\msa$-amplification consisting 
+	of an operator $A \in \msa$ in the n$^{th}$ diagonal entry. We have, by our 
+	assumption, that 
+	$\norm{A(f_\alpha(n) - f_\beta(n))} = \norm{f_\alpha(n) - f_\beta(n)}_A$ 
+	converges to 0. Whence we extract a limit $f(n) = \lim_\alpha f_\alpha(n)$ by
+	the completeness of $\ms{D}$. The seminorm $\norm{f_\alpha - f}_X$, 
+	where $X$ is any $\msa$-amplification, is simply a finite sum of seminorms 
+	on $\ms{D}$ applied to $f_\alpha(j) - f(j)$, $j \le n$ for some 
+	$n \in \mathbb{N}$, which converges to zero.
+\end{proof}
+
+\end{proposition}
+
+This property is helpful for when it is important that our $Op^*$-algebra is complete, as it allows us to still get a handle on the operators and vectors on this amplified space. 
+It also meshes well with how amplifications are defined in the bounded setting.
+
+We wish to apply channels of the original algebras to this amplified space. In
+order to use topologies on $\msa_\infty$ in this setting it's convenient to have a
+natural embedding of $\msa$ into $\msa_\infty$, motivating why we take infinite matrices
+and finitely supported vectors.
+
+\subsection{Topologizing the Channels}
+
+In the previous section we discussed a variety of generalizations of the operator norm
+on the operator algebras themselves. We must now discuss how to generalize the completely
+bounded norm given a locally convex topology on the algebras.
+
+Let $\pair{\msa_\infty}{\{q_\alpha\}}$ and $\pair{\msb_\infty}{\{q_\beta\}}$
+be locally convex amplification algebras, let $\mc{E}:\msa \to \msb$ be a quantum
+channel continuous relative to both topologies. Let $\norm{\cdot}_{S,\beta}$
+be the family of seminorms defined via 
+\[\norm{\mc{E}}_{S, \beta} = \sup_{X \in S}(q_\beta(\mc{E}_\infty(X))),\]
+where $S$ is a bounded subset of $\pair{\msa}{\{q_\alpha\}}$. This gives a topology 
+on the channels relative to whatever locally convex topology for $\msa$ we choose. 
+
+There is one more step to make a 'completely bounded' topology out of this.
+
+\end{document}
