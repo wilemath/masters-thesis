@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+
+\title{Privacy and Correctability}
+\author{Jack Wile}
+\date{}
+
+\usepackage{mathcommands}
+
+\begin{document}
+	
+\maketitle
+
+	
+	
+
+
+\begin{definition}
+	
+	Let $\msa$ and $\msb$ be Op$^*$-algebras over pre-Hilbert spaces $\mc{S}_1$ and $\mc{S}_2$ and let $\mc{E}: \msa \mapsto \msb$ be a quantum channel.
+	If $p$ is a projection on $\mcs_2$, an Op$^*$-algebra $\msn \subseteq \ldag{p(\mcs_2)}$ is said to be private for $\mce$ with respect to $p$ if 
+	\[\mcc_p(\mce(\msa)) \subseteq \msn'_c.\] If $p = I$, then we say that $\msn$ is private for $\mce$.
+
+\end{definition}
+
+\begin{definition}
+	
+	Let $\msa_1$ and $\msa_2$ be Op$^*$-algebras over $S_1$, $S_2$, respectively and $\mce: \msa_1 \mapsto \msa_2$ a quantum channel.
+	Given a projection $p$ over $S_2$, an Op$^*$-algebra $\msn \subseteq \ldag{p(S_2)}$ is said to be correctable for $\mce$ with respect
+	to p if there exists a quantum channel $\mc{R}: \msn \mapsto \msa_1$ such that \[\mcc_p(\mce(\mc{R})) = I_\msn.\] 
+	
+
+\end{definition}
+
+\begin{definition}
+	
+	Let $\msa$ and $\msb$ be Op$^*$-algebras over $\mc{S}_1$ and $\mc{S}_2$, and $\mc{E}: \msa \mapsto \msb$ a quantum channel between them. 
+	Given a Stinespring triple $(\pi, v, \mc{D})$ for $\mc{E}$, we define the complementary channel $\mc{E}^c: \pi(\msa)'_c \mapsto \ldag{\mc{S}_2}$
+	by \[\mc{E}^c(x) = v^*xv, \quad  \forall  x \in (\msa)'_c.\]  
+
+\end{definition}
+
+\begin{remark}\label{pi}
+	
+	Let $(\pi_1, v_1, \mcd_1)$ and $(\pi_2, v_2, \mcd_2)$ be two Stinespring triples for $\mce$ in the above definition 
+	and $\mc{F}_1$, $\mc{F}_2$ their respective complementary channels.
+	By the uniqueness of the Stinespring representation we have 
+	a partial isometry, $u: \mcd_1 \mapsto \mcd_2$, satisfying \[uv_1 = v_2, \quad u^*v_2 = v_1 \ and \ u\pi_1(a) = \pi_2(a)u,\] for any $a \in \msa$.
+	Given $a \in \msa$, $x \in \pi_1(\msa)'_c$ and $\psi, \xi \in \mc{D}_1$
+	\begin{align*}
+		\ip{\pi_2(a)\psi}{\mcc_u(x)\xi} &= \ip{\pi_2(a)\psi}{uxu^*\xi} \\
+					&= \ip{u^*\pi_2(a)\psi}{xu^*\xi} \\
+					&= \ip{\pi_1(a)u^*\psi}{xu^*\xi} \\
+					&= \ip{x^\dagger u^*\psi}{\pi_1(a^\dagger)u^*\xi} \\
+					&= \ip{x^\dagger u^*\psi}{u^*\pi_2(a^\dagger)\xi} \\ 
+					&= \ip{\mcc_u(x^\dagger)\psi}{\pi_2(a^\dagger)\xi} \\
+					&= \ip{\mcc_u(x)^\dagger\psi}{\pi_2(a)^\dagger\xi}.
+	\end{align*}
+	Hence, $\mcc_u(\pi_1(\msa)'_c) \subseteq \pi_2(\msa)'_c$ and by the same argument, $\mcc_{u^*}(\pi_2(\msa)'_c) \subseteq \pi_1(\msa)'_c$. 
+	Thus $\mc{F}_1(\mcc_{u^*})$ and $\mc{F}_2(\mcc_{u})$ are well-defined and, by the relations $u$ satisfies with respect to $v_1$ and $v_2$, 
+	$\mc{F}_1(\mcc_{u^*}) = \mc{F}_2$ and $\mc{F}_2(\mcc_u) = \mc{F}_1$.
+	
+	
+
+\end{remark}
+
+\begin{theorem} [Arveson's Commutant Lifting Theorem]
+	Let $\mce: \msa_1 \mapsto \msa_2$ be a quantum channel between Op$^*$-algebras. 
+	There exists a Stinespring triple $(\pi, v, \mcd)$ and a normal $*$-homomorphism $\rho: \mce(\msa_1)'_c \mapsto \pi(\msa_1)'_c$
+	satisfying $\rho(x)v = vx$ for all $x \in \mce(\msa_1)'_c$.
+\end{theorem}
+
+\begin{proof}
+	
+	Given $x \in \mce(\msa_1)'_c$, define $\rho(x)$ on $\msa_1 \otimes S_2$ by $\rho(x)(a \otimes \psi) = a \otimes x\psi$ and extending linearly.
+	Let $\pi$ be the usual Stinespring representation on $\msa_1 \otimes S_2$ and note that as defined $\rho$ and $\pi$ commute.
+	We claim that $\rho$ induces a well-defined map on the quotient, $\mcd$ of $\msa_1 \otimes S_2$ by the kernel $N$ of the usual Stinespring inner product;
+	$$\ip{a \otimes \psi}{b \otimes \xi} \defeq \ip{\mce(a^\dagger b)\psi}{\xi}.$$
+	Suppose that $\xi = \sum_{k = 1}^n a_k \otimes \xi_k$ is in $N$ and observe
+	\begin{align*}
+		0 &= \sum_{i, j = 1}^n \ip{\mce(a_i^\dagger a_j)\xi_i}{\xi_j} \\
+		  &= \ip{[\mce(a_i^\dagger a_j)]_{i,j}^n[\xi]_{i}^n}{[\xi]_{i}^n},
+	\end{align*}
+	where $[\mce(a_i^\dagger a_j)]_{i,j}^n$ is the matrix in $M_n(\msa_2)$ and $[\xi]_i^n$ a vector in $S_2 \otimes \mathbb{C}^n$. 
+	$[\mce(a_i^\dagger a_j)]_{i,j}^n$ is symmetric, and by complete positivity, $[\mce(a_i^\dagger a_j)]_{i,j}^n \ge 0$. 
+	Let $A$ be its Friedrichs extension. By the previous lemma, $S_2 \otimes \mathbb{C}^n \subseteq \mcd(A) \subseteq \mcd(\sqrt{A})$
+	and hence $$0 = \ip{[\xi_i]_i^n}{A [\xi_i]_i^n} = \ip{\sqrt{A}[\xi_i]_i^n}{\sqrt{A}[\xi_i]_i^n} = \norm{\sqrt{A}[\xi_i]_i^n}^2,$$
+	implying $\sqrt{A}[\xi_i]_i^n = [\mce(a_i^\dagger a_j)]_{i,j}^n[\xi_i]_i^n = 0$. Since $1 \otimes \mce(\msa_1)'_c \subseteq M_n(\mce(\msa_1))'_c$,
+	for any $x \in \mce(\msa_1)'_c$; 
+	\begin{align*}
+		\ip{\rho(x)\xi}{\rho(x)\xi} &= \sum_{i,j}^n \ip{\mce(a_i^\dagger a_j)x\xi_i}{\xi_j} \\
+					    &= \ip{[\mce(a_i^\dagger a_j)]_{i,j}^n(1 \otimes x)[\xi_i]_i^n}{(1 \otimes x)[\xi_i]_i^n} \\
+					    &= \ip{(1 \otimes x^\dagger)(1 \otimes x)[\xi_i]_i^n}{([\mce(a_i^\dagger a_j)]_{i,j}^n)^\dagger[\xi_i]_i^n} \\
+					    &= \ip{(1 \otimes x^\dagger)(1 \otimes x)[\xi_i]_i^n}{[\mce(a_i^\dagger a_j)]_{i,j}^n[\xi_i]_i^n} \\ 
+					    &= 0,
+	\end{align*}
+	where the second to last line is by the symmetry of $[\mce(a_i^\dagger a_j)]_{i,j}^n$. Hence $\rho$ is well-defined on the quotient. 
+	Next we show that $\rho$ is a $*$-representation. For $x \in \mce(\msa_1)'_c$ we have 
+	\begin{align*}
+		\ip{\rho(x^\dagger)\xi}{\psi} &= \sum_{i=1}^n\sum^m_{j=1}\ip{\mce(a_i^\dagger b_j)x^\dagger \xi_i}{\psi_j} \\
+					      &= \sum_{i=1}^n\sum^m_{j=1}\ip{x^\dagger \xi_i}{\mce(b_j^\dagger a_i)\psi_j} \\
+					      &= \sum_{i=1}^n\sum^m_{j=1}\ip{\mce(a_i^\dagger b_j)\xi_i}{x\psi_j} \\
+					     &= \ip{\xi}{\rho(x)\psi},
+	\end{align*}
+	where $\psi = \sum_{j = 1}^m b_j \otimes \psi_j$.
+	That $\rho$ is multiplicative is seen easily by definition, and thus is inherited by the function defined on the quotient by $N$.
+	Let $\{x_\alpha\}_{\alpha \in I}$ be a net in $\mce(\msa_1)'_c$ converging to zero ultraweakly. 
+	Given $\{\xi_k\}_{k \in \mathbb{N}}, \{\psi_k\}_{k \in \mathbb{N}} \in \mcd^\infty(\pi(\msa_1)'_c)$, where $\xi_k = \sum_{i = 1}^{n_k} a_{k,i} \otimes \xi_k(i)$
+	and $\psi_k = \sum_{j = 1}^{m_k}b_{k,j} \otimes \psi_k(j)$, we have
+	\begin{align*}
+		\sum_{k}\ip{p(x_\alpha)\xi_k}{\psi_k} &= \sum_{k}\sum_{i=1}^{n_k}\sum_{j=1}^{m_k}\ip{\mce(a^\dagger_{i,k}b_{j,k})x_\alpha\xi_k(i)}{\psi_k(j)} \\
+						      &= \sum_{k}\sum_{i = 1}^{n_k}\sum_{j=1}^{m_k}\ip{\mce(a^\dagger_{i,k}b_{j,k})\xi_k(i)}{x_\alpha\psi_k(j)}.
+	\end{align*}
+	The final line is equal to a seminorm in the ultraweak topology on $\mce(\msa_1)'_c$, and thus converges to zero, showing that $\rho$ is normal. Recall that the
+	isometry in the usual Stinespring representation is given by $v(\phi) = 1 \otimes \phi$ from which the claimed identity easily follows.
+
+\end{proof}
+
+
+\begin{theorem}
+	
+	Let $\msa_1$ and $\msa_2$ be Op$^*$-algebras on pre-Hilbert spaces
+	$\mc{S}_1$ and $\mc{S}_2$, respectively, and $\mc{E}: \msa_1 \mapsto \msa_2$ 
+	a quantum channel. If an Op$^*$-algebra $\msn \subseteq \ldag{\mc{S}_2}$ 
+	is private (respectively, correctable) for $\mc{E}$ then it is 
+	correctable (respectively, private) for any complement of $\mce$.
+
+\end{theorem}
+
+
+\begin{proof}
+	
+	Suppose that $\msn$ is private for $\mce$ and let $\mce^c$ be the complement of $\mce$ with respect to the Stinespring representation from the proof of the theorem,
+	and $\rho: \mce(\msa_1)'_c \mapsto \pi(\msa_1)'_c$ the $*$-homomorphism from Arveson's commutant lifting theorem satisfying $\rho(x)v = vx$. 
+	$\mc{R} \defeq \rho|_\msn$ corrects $\mce^c$; $$\mce^c(\mc{R}(x)) = v^\dagger\rho(x)v = v^\dagger vx = x.$$ 
+	The result follows for general complementary channels by Remark \ref{pi}.
+
+	Now suppose that $\msn$ is correctable for $\mce$ and let $\mc{R}:\msn \mapsto \msa_1$ be the correcting channel so that $\mce\mc{R} = I_\msn$. 
+	By the amplification induction theorem, there exist isometries
+	
+
+\end{proof}
+
+\begin{corollary}
+	
+	Let $\msa_1$ and $\msa_2$ be Op$^*$-algebras on pre-Hilbert spaces $S_1$, $S_2$, respectively, and $p$ a projection on $S_2$.
+	If an Op$^*$-algebra $\msn \subseteq \ldag{p(S_2)}$ is private (respectively, correctable) for $\mce$ with respect to $p$ then it is
+	correctable (respectively, private) for any complement of $\mce$ with respect to $p$.
+
+\end{corollary}
+
+\begin{proof}
+	First observe that, by definition, $\msn \subseteq \ldag{p(S_2)}$ is private (respectively, correctable) for $\mce$ with respect to $p$
+	if and only if it is private (respectively, correctable) for $\mcc_p(\mce)$. 
+	Given a complementary channel $\mce^c$ with respect to a Stinespring dilation $(\pi, v, \mcd)$, $\mcc_p(\mce^c)$ is a complementary channel
+	for $\mcc_p(\mce)$ with respect to $(\pi, vp, \mcd)$. 
+	This follows immediately; on the one hand $$\mcc_p(\mce(a)) = pv^\dagger\pi(a)vp,$$ showing that $(\pi, vp, \mcd)$ is a Stinespring triple for 
+	$\mcc_p(\mce)$ and then if $\mce^c_p$ is the induced complementary channel, for any $x \in \pi(\msa_1)'_c$ we have
+	$$\mce^c_p(x) = pv^\dagger xvp = \mcc_p(\mce^c(x)).$$
+	The corollary follows by applying the previous theorem to the channels $\mcc_p(\mce)$ and $\mcc_p(\mce^c)$.
+	
+
+\end{proof}
+
+\end{document}
+

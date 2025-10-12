@@ -66,50 +66,42 @@ in order.
 
 \begin{definition}
 
-Let $\msa$ be an $Op^*$-algebra. We denote by $\msa_\infty = \msa \otimes M_\infty$ 
-the space of infinite $\msa$-matrices, called the $\msa$-amplifications.
+Let $\msa$ be an $Op^*$-algebra. We denote by $\msa_n = \msa \otimes M_n$ 
+the space of n by n $\msa$-matrices, which we may verbally refer to as the
+$\msa$-amplifications of degree n.
 
 \end{definition}
 
-It is an algebraic matter how one makes a $\ast$-algebra out of this space, but
-what space should this act on? Let $\ms{D}_\infty$ be the space of 
-finitely supported, $\ms{D}$-valued sequences. This is a pre-Hilbert space under the 
-usual 'direct sum' inner product for Hilbert spaces. $\msa_\infty$ acts on 
-these sequences in the usual manner. 
-It is clear that $\msa_\infty$ is an $Op^*$-algebra on $\ms{D}_\infty$.
-
-What is advantageous with this choice of domain is the stability of completeness of the 
-domain with respect to the topologies induced by $\msa$ and $\msa_\infty$.
+$\msa_n$ is an $Op^*$-algebra when acting on the direct sum of n copies of 
+$\msd$, which we write as $\msd_n$. In this setting we have stability of the 
+completeness of the domain.
 
 \begin{proposition}
 
 Let $\msa$ be an $Op^*$-algebra on a pre Hilbert space $\ms{D}$ such that $\ms{D}$ is 
-complete with respect to $\mc{T}_\msa$, then $\ms{D}_\infty$ is complete with 
-respect to $\mc{T}_{\msa_\infty}$.
+complete with respect to $\mc{T}_\msa$, then $\ms{D}_n$ is complete with 
+respect to $\mc{T}_{\msa_n}$.
 
 \begin{proof}
 
 	Let $\{f_\alpha\}_\alpha$ be Cauchy with respect to 
-	$\mc{T}_{\msa_\infty}$. Take the $\msa$-amplification consisting 
-	of an operator $A \in \msa$ in the n$^{th}$ diagonal entry. We have, by our 
+	$\mc{T}_{\msa_n}$. Take the $\msa$-amplification consisting 
+	of an operator $A \in \msa$ in the k$^{th}$ diagonal entry. We have, by our 
 	assumption, that 
-	$\norm{A(f_\alpha(n) - f_\beta(n))} = \norm{f_\alpha(n) - f_\beta(n)}_A$ 
-	converges to 0. Whence we extract a limit $f(n) = \lim_\alpha f_\alpha(n)$ by
+	$\norm{A(f_\alpha(k) - f_\beta(k))} = \norm{f_\alpha(k) - f_\beta(k)}_A$ 
+	converges to 0. Whence we extract a limit $f(k) = \lim_\alpha f_\alpha(k)$ by
 	the completeness of $\ms{D}$. The seminorm $\norm{f_\alpha - f}_X$, 
 	where $X$ is any $\msa$-amplification, is simply a finite sum of seminorms 
-	on $\ms{D}$ applied to $f_\alpha(j) - f(j)$, $j \le n$ for some 
-	$n \in \mathbb{N}$, which converges to zero.
+	on $\ms{D}$ applied to $f_\alpha(k) - f(k)$, which converges to 0.
 \end{proof}
 
 \end{proposition}
 
-This property is helpful for when it is important that our $Op^*$-algebra is complete, as it allows us to still get a handle on the operators and vectors on this amplified space. 
-It also meshes well with how amplifications are defined in the bounded setting.
-
-We wish to apply channels of the original algebras to this amplified space. In
-order to use topologies on $\msa_\infty$ in this setting it's convenient to have a
-natural embedding of $\msa$ into $\msa_\infty$, motivating why we take infinite matrices
-and finitely supported vectors.
+There is of course a natural embedding of $\msa$ into $\msa_n$ via the map 
+$A \to A \otimes 1_n$. It would be convenient if any of the locally convex 
+topologies one can put on an $Op^*$-algebra would be stable under taking the 
+subspace topology with respect to this embedding. Thus we will assume that this 
+embedding is a homeomorphism with respect to the topology taken for our algebras.
 
 \subsection{Topologizing the Channels}
 
@@ -117,14 +109,8 @@ In the previous section we discussed a variety of generalizations of the operato
 on the operator algebras themselves. We must now discuss how to generalize the completely
 bounded norm given a locally convex topology on the algebras.
 
-Let $\pair{\msa_\infty}{\{q_\alpha\}}$ and $\pair{\msb_\infty}{\{q_\beta\}}$
+Let $\pair{\msa_n}{\{q_\alpha\}}$ and $\pair{\msb_n}{\{q_\beta\}}$
 be locally convex amplification algebras, let $\mc{E}:\msa \to \msb$ be a quantum
-channel continuous relative to both topologies. Let $\norm{\cdot}_{S,\beta}$
-be the family of seminorms defined via 
-\[\norm{\mc{E}}_{S, \beta} = \sup_{X \in S}(q_\beta(\mc{E}_\infty(X))),\]
-where $S$ is a bounded subset of $\pair{\msa}{\{q_\alpha\}}$. This gives a topology 
-on the channels relative to whatever locally convex topology for $\msa$ we choose. 
-
-There is one more step to make a 'completely bounded' topology out of this.
+channel continuous relative to both topologies.
 
 \end{document}
